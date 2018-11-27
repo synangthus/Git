@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.pinyougou.pojo.TbBrand;
 import com.pinyougou.sellergoods.service.BrandService;
 import com.pinyougou.vo.PageResult;
+import com.pinyougou.vo.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,69 @@ public class BrandController {
     //引入远程的服务对象
     @Reference
     private BrandService brandService;
+
+    /*
+    * 根据条件分页查询
+    * */
+    @PostMapping("/search")
+    public PageResult search(@RequestParam(value = "page", defaultValue = "1")Integer page,@RequestParam (value = "rows",defaultValue = "10")Integer rows ,@RequestBody TbBrand brand ){
+
+        return brandService.search( page ,rows,brand );
+    }
+
+    /*
+    * 删除品牌数据
+    * */
+    @GetMapping("/delete")
+    public Result delete(Long[] ids){
+        try {
+
+            brandService.deleteByIds(ids);
+            return Result.ok("删除成功");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return Result.fail("删除失败");
+    }
+
+
+    /*
+    * 查询所有品牌数据
+    * @return 品牌列表json格式字符串
+    * */
+    @GetMapping("/findOne")
+    public TbBrand findOne (Long id){
+        return  brandService.findOne(id);
+    }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody TbBrand brand){
+        try {
+            brandService.update(brand);
+
+            return Result.ok("修改成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return Result.fail("修改失败");
+    }
+
+    /*
+    *  保存品牌数据到数据库中
+    * */
+    @PostMapping("/add")
+    public Result add(@RequestBody TbBrand brand){
+        try {
+            brandService.add(brand);
+            return Result.ok("新增品牌成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.fail("新增品牌失败");
+    }
 
     /**
      * 根据页号和页大小查询品牌列表
@@ -52,4 +116,9 @@ public class BrandController {
         //return brandService.queryAll();
         return brandService.findAll();
     }
+
+
+
+
+
 }
