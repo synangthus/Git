@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+import java.util.Map;
 
 @Service(interfaceClass = SpecificationOptionService.class)
 public class SpecificationOptionServiceImpl extends BaseServiceImpl<TbSpecificationOption> implements SpecificationOptionService {
@@ -35,4 +36,8 @@ public class SpecificationOptionServiceImpl extends BaseServiceImpl<TbSpecificat
 
         return new PageResult(pageInfo.getTotal(), pageInfo.getList());
     }
+
+
+
+
 }

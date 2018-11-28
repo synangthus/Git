@@ -75,4 +75,6 @@ app.controller("specificationController", function ($scope, $controller, specifi
         $scope.entity.specificationOptionList.splice(index, 1);
     };
 
+
+
 });

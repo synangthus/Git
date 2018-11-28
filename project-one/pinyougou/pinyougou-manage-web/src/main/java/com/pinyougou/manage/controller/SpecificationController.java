@@ -9,6 +9,7 @@ import com.pinyougou.vo.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/specification")
 @RestController
@@ -79,4 +80,12 @@ public class SpecificationController {
         return specificationService.search(page, rows, specification);
     }
 
+    /**
+     *  查询规格列表，返回的数据格式符合 select2 格式
+     * @return
+     */
+    @GetMapping("/selectOptionList")
+    public List<Map<String, Object>> selectOptionList() {
+        return specificationService.selectOptionList();
+    }
 }

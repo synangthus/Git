@@ -5,4 +5,5 @@
     <select id="selectOptionList" resultType="map">
       SELECT id,spec_name as text FROM tb_specification
     </select>
+
 </mapper>
