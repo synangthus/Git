@@ -5,10 +5,10 @@ import com.pinyougou.pojo.TbBrand;
 import com.pinyougou.sellergoods.service.BrandService;
 import com.pinyougou.vo.PageResult;
 import com.pinyougou.vo.Result;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/brand")
 //@Controller
@@ -18,6 +18,15 @@ public class BrandController {
     //引入远程的服务对象
     @Reference
     private BrandService brandService;
+
+    /*
+    *  查询品牌列表,返回的数据格式符合select2规格
+    * */
+    @GetMapping("/selectOptionList")
+    public List<Map<String ,Object>> selectOptionList(){
+        return brandService.selectOptionList();
+    }
+
 
     /*
     * 根据条件分页查询

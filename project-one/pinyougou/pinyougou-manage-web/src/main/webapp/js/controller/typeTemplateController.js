@@ -96,4 +96,14 @@ app.controller("typeTemplateController", function ($scope, $controller, typeTemp
         $scope.entity.customAttributeItems.splice(index, 1);
     };
 
+    //拓展属性 数据结构[{"text":" 内存大小 "},{"text":" 颜色 "}]
+    $scope.addTableRow = function () {
+        $scope.entity.customAttributeItems.push({});
+
+    }
+
+    $scope.deleteTableRow = function (index) {
+        $scope.entity.customAttributeItems.splice(index,1);
+    }
+
 });
