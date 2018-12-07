@@ -92,4 +92,6 @@ app.controller("itemCatController", function ($scope, $controller, itemCatServic
         $scope.findByParentId(entity.id);
     }
 
+
+
 });

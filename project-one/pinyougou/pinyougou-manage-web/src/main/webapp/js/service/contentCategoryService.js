@@ -29,4 +29,6 @@ app.service("contentCategoryService",function ($http) {
         return $http.post("../contentCategory/search.do?page=" + page + "&rows=" + rows, searchEntity);
 
     };
+
+
 });
