@@ -1,7 +1,7 @@
 package com.pinyougou.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.pinyogou.content.service.ContentService;
+import com.pinyougou.content.service.ContentService;
 import com.pinyougou.pojo.TbContent;
 import com.pinyougou.vo.PageResult;
 import com.pinyougou.vo.Result;

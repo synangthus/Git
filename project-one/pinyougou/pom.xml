@@ -16,6 +16,8 @@
         <module>pinyougou-manage-web</module>
         <module>pinyougou-shop-web</module>
         <module>pinyougou-content</module>
+        <module>pinyougou-portal-web</module>
+        <module>pinyougou-item-web</module>
     </modules>
 
 

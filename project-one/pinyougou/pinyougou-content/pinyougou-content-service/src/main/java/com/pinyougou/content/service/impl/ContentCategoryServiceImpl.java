@@ -3,7 +3,7 @@ package com.pinyougou.content.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.pinyogou.content.service.ContentCategoryService;
+import com.pinyougou.content.service.ContentCategoryService;
 import com.pinyougou.mapper.ContentCategoryMapper;
 import com.pinyougou.pojo.TbContentCategory;
 import com.pinyougou.service.impl.BaseServiceImpl;
