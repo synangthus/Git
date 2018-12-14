@@ -89,16 +89,4 @@ app.controller("sellerController", function ($scope, $controller, sellerService)
         });
     };
 
-    // 修改商家状态
-    $scope.updateStatus = function (sellerId, status) {
-        var updateData = {"sellerId": sellerId, "status": status};
-        sellerService.update(updateData).success(function (response) {
-            if(response.success){
-                $scope.reloadList();
-            } else {
-                alert(response.message);
-            }
-        });
-    };
-
 });

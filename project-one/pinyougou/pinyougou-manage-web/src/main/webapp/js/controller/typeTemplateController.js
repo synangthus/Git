@@ -36,7 +36,7 @@ app.controller("typeTemplateController", function ($scope, $controller, typeTemp
     $scope.findOne = function (id) {
         typeTemplateService.findOne(id).success(function (response) {
             $scope.entity = response;
-            //转换品牌列表
+            //转换品牌列表；将数据库中保存的字符串转换为一个json对象
             $scope.entity.brandIds = JSON.parse($scope.entity.brandIds);
             //转换规格列表
             $scope.entity.specIds = JSON.parse($scope.entity.specIds);
@@ -71,7 +71,7 @@ app.controller("typeTemplateController", function ($scope, $controller, typeTemp
 
     };
 
-    //查询品牌列表
+    //查询品牌列表；并返回数据结构形如：[{id:'1',text:'联想'},{id:'2',text:'华为'}]
     $scope.brandList = {data:[]};//初始化
     $scope.findBrandList = function(){
         brandService.selectOptionList().success(function (response) {
@@ -95,15 +95,5 @@ app.controller("typeTemplateController", function ($scope, $controller, typeTemp
     $scope.deleteTableRow = function (index) {
         $scope.entity.customAttributeItems.splice(index, 1);
     };
-
-    //拓展属性 数据结构[{"text":" 内存大小 "},{"text":" 颜色 "}]
-    $scope.addTableRow = function () {
-        $scope.entity.customAttributeItems.push({});
-
-    }
-
-    $scope.deleteTableRow = function (index) {
-        $scope.entity.customAttributeItems.splice(index,1);
-    }
 
 });

@@ -1,8 +1,8 @@
 package com.pinyougou.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.pinyougou.content.service.ContentCategoryService;
 import com.pinyougou.pojo.TbContentCategory;
+import com.pinyougou.content.service.ContentCategoryService;
 import com.pinyougou.vo.PageResult;
 import com.pinyougou.vo.Result;
 import org.springframework.web.bind.annotation.*;
@@ -74,7 +74,7 @@ public class ContentCategoryController {
      */
     @PostMapping("/search")
     public PageResult search(@RequestBody  TbContentCategory contentCategory, @RequestParam(value = "page", defaultValue = "1")Integer page,
-                             @RequestParam(value = "rows", defaultValue = "10")Integer rows) {
+                               @RequestParam(value = "rows", defaultValue = "10")Integer rows) {
         return contentCategoryService.search(page, rows, contentCategory);
     }
 

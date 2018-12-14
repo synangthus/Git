@@ -8,24 +8,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-//登录
 @RequestMapping("/login")
 @RestController
 public class LoginController {
 
     /**
-     *  从 security  认证信息中获取当前登录人信息
-     * @return  当前登录人
+     * 获取当前登录用户的信息
+     * @return 用户信息
      */
     @GetMapping("/getUsername")
-    public Map<String ,String > getUsername(){
-        Map<String ,String > map = new HashMap<>();
+    public Map<String, Object> getUsername(){
+        Map<String, Object> resultMap = new HashMap<String, Object>();
 
+        //从security中获取登录用户名
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        resultMap.put("username", username);
 
-        map.put("username",username);
-
-        return map ;
+        return resultMap;
     }
-
 }

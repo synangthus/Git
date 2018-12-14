@@ -8,20 +8,12 @@ import com.pinyougou.vo.Result;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RequestMapping("/itemCat")
 @RestController
 public class ItemCatController {
 
     @Reference
     private ItemCatService itemCatService;
-
-    @GetMapping("/findByParentId")
-    public List<TbItemCat> findByParentId(Long parentId) {
-        TbItemCat itemCat = new TbItemCat();
-        itemCat.setParentId(parentId);
-        return itemCatService.findByWhere(itemCat);
-    }
 
     @RequestMapping("/findAll")
     public List<TbItemCat> findAll() {
@@ -85,5 +77,17 @@ public class ItemCatController {
         return itemCatService.search(page, rows, itemCat);
     }
 
+    /**
+     * 根据父分类id查询其对应的所有子商品分类
+     * @param parentId 父分类id
+     * @return 商品分类列表
+     */
+    @GetMapping("/findByParentId")
+    public List<TbItemCat> findByParentId(Long parentId){
+        TbItemCat itemCat = new TbItemCat();
+        itemCat.setParentId(parentId);
+
+        return itemCatService.findByWhere(itemCat);
+    }
 
 }

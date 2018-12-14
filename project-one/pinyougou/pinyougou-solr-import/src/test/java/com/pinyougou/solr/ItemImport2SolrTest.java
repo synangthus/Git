@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath*:spring/applicationContext*.xml")
+@ContextConfiguration(locations = "classpath*:spring/applicationContext-*.xml")
 public class ItemImport2SolrTest {
     @Autowired
     private SolrTemplate solrTemplate;
